@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import * as GC from "@grapecity/spread-sheets";
+import React from "react";
+// import * as GC from "@grapecity/spread-sheets";
 import "@grapecity/spread-sheets-print";
 import "@grapecity/spread-sheets-shapes";
 import "@grapecity/spread-sheets-slicers";
@@ -12,46 +12,19 @@ import { Designer } from "@grapecity/spread-sheets-designer-react";
 import "@grapecity/spread-sheets-designer/styles/gc.spread.sheets.designer.min.css";
 import "@grapecity/spread-sheets/styles/gc.spread.sheets.excel2013white.css";
 import "./custom.css";
-import * as ExcelIO from "@grapecity/spread-excelio";
+// import * as ExcelIO from "@grapecity/spread-excelio";
+import Navbar from "../Navbar/Navbar";
+
 
 // GC.Spread.Sheets.Designer.LicenseKey = "designer-component-distribution-key";
 // const sjsLicense: string = "sjs-distribution-key";
 
 export default function ActualSheet() {
-  // const config: any = GC.Spread.Sheets.Designer.DefaultConfig;
-  // config.commandMap = {
-  //   Welcome: {
-  //     title: "Welcome",
-  //     text: "Welcome",
-  //     iconClass: "ribbon-button-welcome",
-  //     bigButton: "true",
-  //     commandName: "Welcome",
-  //     execute: async (
-  //       context: any,
-  //       propertyName: any,
-  //       fontItalicChecked?: any
-  //     ) => {
-  //       alert("Welcome to new designer.");
-  //     },
-  //   },
-  // };
-  // config.ribbon[0].buttonGroups.unshift({
-  //   label: "NewDesigner",
-  //   thumbnailClass: "welcome",
-  //   commandGroup: {
-  //     children: [
-  //       {
-  //         direction: "vertical",
-  //         commands: ["Welcome"],
-  //       },
-  //       // This is custom button ----------------end-------------
-  //     ],
-  //   },
-  // });
-
   return (
     <div>
+      <Navbar />
       <Designer
+        // designerInitialized={(designer: any) => {getDesigner(designer)}}
         styleInfo={{ width: "100%", height: "98vh" }}
         // config={config}
         spreadOptions={{ sheetCount: 2 }}
@@ -59,3 +32,9 @@ export default function ActualSheet() {
     </div>
   );
 }
+
+// const getDesigner = (designer: any) => {
+//   const workbook = designer.getWorkbook();
+//   const sheet = workbook.getActiveSheet();
+//   sheet.setValue(1, 1, 'Test');
+// }
